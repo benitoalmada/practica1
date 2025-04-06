@@ -1,0 +1,15 @@
+<h2>{{ accion }} usuario</h2>
+<form method="POST">
+    <input type="text" name="usuario" placeholder="Usuario" value="{{ usuario.usuario or '' }}" required>
+    
+    {% if accion == 'Crear' %}
+    <input type="password" name="clave" placeholder="Contraseña" required>
+    {% endif %}
+    
+    <select name="rol" required>
+        <option value="admin" {% if usuario.rol == 'admin' %}selected{% endif %}>Admin</option>
+        <option value="profesor" {% if usuario.rol == 'profesor' %}selected{% endif %}>Profesor</option>
+    </select>
+    
+    <button type="submit">{{ accion }}</button>
+</form>

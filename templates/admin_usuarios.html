@@ -1,0 +1,18 @@
+<h2>Lista de Usuarios</h2>
+<a href="{{ url_for('crear_usuario') }}">Crear nuevo usuario</a>
+<table border="1">
+    <tr><th>ID</th><th>Usuario</th><th>Rol</th><th>Acciones</th></tr>
+    {% for u in usuarios %}
+    <tr>
+        <td>{{ u.id }}</td>
+        <td>{{ u.usuario }}</td>
+        <td>{{ u.rol }}</td>
+        <td>
+            <a href="{{ url_for('editar_usuario', id=u.id) }}">Editar</a>
+            <form method="POST" action="{{ url_for('eliminar_usuario', id=u.id) }}" style="display:inline;">
+                <button type="submit" onclick="return confirm('¿Eliminar usuario?')">Eliminar</button>
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
+</table>

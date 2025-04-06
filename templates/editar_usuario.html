@@ -1,0 +1,10 @@
+<h2>Editar Usuario</h2>
+<form method="POST">
+    <input type="text" name="usuario" value="{{ usuario.usuario }}" required>
+    <select name="rol">
+        <option value="usuario" {% if usuario.rol == 'usuario' %}selected{% endif %}>Usuario</option>
+        <option value="profesor" {% if usuario.rol == 'profesor' %}selected{% endif %}>Profesor</option>
+        <option value="admin" {% if usuario.rol == 'admin' %}selected{% endif %}>Administrador</option>
+    </select>
+    <button type="submit">Actualizar</button>
+</form>

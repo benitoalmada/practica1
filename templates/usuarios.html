@@ -1,0 +1,21 @@
+<h2>Lista de usuarios</h2>
+<a href="{{ url_for('nuevo_usuario') }}">➕ Nuevo usuario</a>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Usuario</th>
+        <th>Rol</th>
+        <th>Acciones</th>
+    </tr>
+    {% for u in usuarios %}
+    <tr>
+        <td>{{ u.id }}</td>
+        <td>{{ u.usuario }}</td>
+        <td>{{ u.rol }}</td>
+        <td>
+            <a href="{{ url_for('editar_usuario', id=u.id) }}">Editar</a> |
+            <a href="{{ url_for('eliminar_usuario', id=u.id) }}" onclick="return confirm('¿Eliminar usuario?');">Eliminar</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
